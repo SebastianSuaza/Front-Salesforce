@@ -44,17 +44,17 @@ app.factory('AppService', ['$resource', function($resource){
          }, {
             obtenerLeads : {
                method : 'GET',
-               headers: { 'Authorization': 'Bearer 00D1U00000153FR!AQoAQA9.tFwpqqtHlO4a7TnmzmVSXiZWzoS7jg96.9RsM1WH2ocSGS9p3wqJQBsOUHdNmG0_xUn19vR08T8vFyok0SCxZW9s' },
+               headers: { 'Authorization': 'Bearer 00D1U00000153FR!AQoAQNdTMnyDwoqtIaa5j8z6ZCf9Y9D2IfqeILeu91vkhJvpOMvfaotXyQq9k54E9MqY1Y4oQmsjyAaoa1AC1pkfTyXVJ13b' },
                url : 'https://na85.salesforce.com/services/apexrest/lead'
             },
             obtenerItemsPorLead : {
                method : 'GET',
-               headers: { 'Authorization': 'Bearer 00D1U00000153FR!AQoAQA9.tFwpqqtHlO4a7TnmzmVSXiZWzoS7jg96.9RsM1WH2ocSGS9p3wqJQBsOUHdNmG0_xUn19vR08T8vFyok0SCxZW9s' },
+               headers: { 'Authorization': 'Bearer 00D1U00000153FR!AQoAQNdTMnyDwoqtIaa5j8z6ZCf9Y9D2IfqeILeu91vkhJvpOMvfaotXyQq9k54E9MqY1Y4oQmsjyAaoa1AC1pkfTyXVJ13b' },
                url : 'https://na85.salesforce.com/services/apexrest/item'
             },
             agregarItem : {
                method : 'POST',
-               headers: { 'Authorization': 'Bearer 00D1U00000153FR!AQoAQA9.tFwpqqtHlO4a7TnmzmVSXiZWzoS7jg96.9RsM1WH2ocSGS9p3wqJQBsOUHdNmG0_xUn19vR08T8vFyok0SCxZW9s' },
+               headers: { 'Authorization': 'Bearer 00D1U00000153FR!AQoAQNdTMnyDwoqtIaa5j8z6ZCf9Y9D2IfqeILeu91vkhJvpOMvfaotXyQq9k54E9MqY1Y4oQmsjyAaoa1AC1pkfTyXVJ13b' },
                url : 'https://na85.salesforce.com/services/apexrest/item'
             }
          }
