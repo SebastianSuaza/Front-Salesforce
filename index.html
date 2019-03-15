@@ -1,16 +1,117 @@
-<html>
+<!doctype html>
+<html lang="es">
 	<head>
 		<title>Front - Salesforse Juan S. Suaza</title>
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular-resource.min.js"></script>
+		<meta charset="utf-8">
+  		<meta name="author" content="Juan S. Suaza">
 
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
-		
-		
-		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-resource.min.js"></script>
+		<script type="text/javascript" src="static/app.js"></script>
 	</head>
-	<body>
+	<body data-ng-app="salesforceApp" data-ng-controller="salesforceController" data-ng-init="init();">
+		<div class="container-fluid">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm">
+						<h2>Pagina web - salesforce</h2>
+						<hr/>
+  						<div class="row">
+    						<div class="col-sm">
+    							<h3>Lista de Leads registrados</h3>
+								<form>
+  									<div class="form-group">
+    									<select class="form-control" id="Leads" data-ng-model="lead" data-ng-options="lead as lead.FirstName+' '+lead.LastName for lead in leads track by lead.Id" data-ng-change="obtenerItemsPorLead(lead)">
+      										<option value="" data-ng-if="!lead">Seleccione un registro</option>
+    									</select>
+  									</div>
+  									<div class="form-group">
+    									<table class="table">
+  											<thead>
+    											<tr>
+      												<th scope="col">#</th>
+											      	<th scope="col">Price__c</th>
+											      	<th scope="col">Tax__c</th>
+											      	<th scope="col">Model__c</th>
+											      	<th scope="col">Serial_number__c</th>
+											      	<th scope="col">Full_Name__c</th>
+											      	<th scope="col">Full_Price__c</th>
+											      	<th scope="col">External_tax__c</th>
+    											</tr>
+  											</thead>
+  											<tbody>
+    											<tr data-ng-repeat="item in items">
+      												<th scope="row">{{$index+1}}</th>
+											      	<td>{{item.Price__c}}</td>
+											      	<td>{{item.Tax__c}}</td>
+											      	<td>{{item.Model__c}}</td>
+											      	<td>{{item.Serial_number__c}}</td>
+											      	<td>{{item.Full_Name__c}}</td>
+											      	<td>{{item.Full_Price__c}}</td>
+											      	<td>{{item.External_tax__c}}</td>
+											    </tr>
+  											</tbody>
+										</table>
+  									</div>
+  								</form>
+							</div>
+						</div>
+						<hr/>
+						<div>
+							<h3>Crear item__c</h3>
+							<br/>
+							<form>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="Name">Name</label>
+											<input type="text" class="form-control" id="Name" placeholder="Name" data-ng-model="item.Name">
+										</div>
+									</div>
+		  							<div class="col-md-4">
+		  								<div class="form-group">
+									    	<label for="Price__c">Price__c</label>
+									    	<input type="number" class="form-control" id="Price__c" placeholder="Price__c" data-ng-model="item.Price__c">
+									  	</div>
+		  							</div>
+		  							<div class="col-md-4">
+		  								<div class="form-group">
+									    	<label for="Tax__c">Tax</label>
+									    	<input type="number" class="form-control" id="Tax__c" placeholder="Tax__c" data-ng-model="item.Tax__c">
+									  	</div>
+		  							</div>
+		  							<div class="col-md-6">
+		  								<div class="form-group">
+									    	<label for="Model__c">Model__c</label>
+									    	<input type="text" class="form-control" id="Model__c" placeholder="Model__c" data-ng-model="item.Model__c">
+									  	</div>
+		  							</div>
+		  							<div class="col-md-6">
+		  								<div class="form-group">
+									    	<label for="">Serial_number__c</label>
+									    	<input type="text" class="form-control" id="Serial_number__c" placeholder="Serial_number__c" data-ng-model="item.Serial_number__c">
+									  	</div>
+		  							</div>
+		  							<div class="col-md-12">
+		  								<div class="form-group">
+									    	<label for="Lead__c">Lead__c</label>
+									    	<select class="form-control" id="Lead__c" data-ng-model="leadAssignment" data-ng-options="lead as lead.FirstName+' '+lead.LastName for lead in leads track by lead.Id">
+									      		<option value="" data-ng-if="!leadAssignment">Seleccione un registro</option>
+									    	</select>
+									  	</div>
+		  							</div>
+		  							<button type="button" class="btn btn-primary" data-ng-click="agregarItem()">Crear item__c</button>
+		  						</div>
+		  					</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
